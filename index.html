@@ -90,7 +90,7 @@ html[lang="en"] .row .v{text-align:left}
 .sheet p{margin:0;font-size:13px;color:var(--muted)}
 .qrframe{padding:3px;border-radius:20px;background:var(--foil);margin-top:4px}
 #qr{background:#fff;padding:14px;border-radius:17px;line-height:0}
-#qr img,#qr canvas{max-width:100%;height:auto}
+#qr img{display:block;width:216px;max-width:100%;height:auto;image-rendering:pixelated}
 .close{margin-top:4px;background:none;border:1px solid var(--line);color:var(--ink);font:500 14px var(--body);padding:10px 26px;border-radius:12px;cursor:pointer}
 .toast{position:fixed;z-index:30;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));width:max-content;max-width:min(92vw,380px);
   background:var(--raise);border:1px solid var(--gold);color:var(--ink);padding:12px 16px;border-radius:14px;font-size:13px;line-height:1.7;text-align:center}
@@ -166,13 +166,12 @@ html[lang="en"] .row .v{text-align:left}
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
     <h2 id="qrTitle" data-t="qrT"></h2>
     <p data-t="qrP"></p>
-    <div class="qrframe"><div id="qr"></div></div>
+    <div class="qrframe"><div id="qr"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAAE2CAIAAABk3in+AAAF40lEQVR4nO3dwW5bNxRF0aroKO3/f2ma6eu0mVABCOZuymtNDcu25A1ODvhez/P8AVT9Of0LACsShTSJQppEIU2ikCZRSJMopEkU0iQKaX+tv/zP399+z+/x23z/98fiq+u/d/29a1Pv5NTvvPNz177a/6RTFNIkCmkShTSJQppEIU2ikCZRSJMopEkU0t6si9bOLUh2nFufnHvlqQ1Qc02183M/73/SKQppEoU0iUKaRCFNopAmUUiTKKRJFNIkCmlb66K15hbnnOYWZ2o/1PyMbvyfdIpCmkQhTaKQJlFIkyikSRTSJAppEoU0iULawXXRjXaWOlM/98b90I3LpClOUUiTKKRJFNIkCmkShTSJQppEIU2ikCZRSLMu+sm5p4ytTe1pvtrfeyOnKKRJFNIkCmkShTSJQppEIU2ikCZRSJMopB1cF924IHEfz6+78b268VNwikKaRCFNopAmUUiTKKRJFNIkCmkShTSJQtrWuujck8KmTK1edn5u83ltN97G1OQUhTSJQppEIU2ikCZRSJMopEkU0iQKaRKFtNfzPNO/wzWaG6C1G1c+N94wdI5TFNIkCmkShTSJQppEIU2ikCZRSJMopEkU0t7cXXTufpob75iZWr2c2y1NbYCmbkVq7sPWP9cpCmkShTSJQppEIU2ikCZRSJMopEkU0iQKaVt3FzUXQs3N0403G029GzvO7aWmllhOUUiTKKRJFNIkCmkShTSJQppEIU2ikCZRSNu6u2htarly7uabqd3Sjcukc268f2iHUxTSJAppEoU0iUKaRCFNopAmUUiTKKRJFNLerIvWmkudqSd27Ti3TZm6JejGRVTziWxOUUiTKKRJFNIkCmkShTSJQppEIU2ikCZRSNt6Mto555YrUzfurDV3LedMLZNu/HudopAmUUiTKKRJFNIkCmkShTSJQppEIU2ikLZ1d9G5ncfU/UM37lp2fqvm9mhH886kHU5RSJMopEkU0iQKaRKFNIlCmkQhTaKQJlFIe7MuOrfGmLqtZ+d7P2+5cuOT4G58utnOO+kUhTSJQppEIU2ikCZRSJMopEkU0iQKaRKFtDfrouaNO2uf99y0teZipvk0txs/facopEkU0iQKaRKFNIlCmkQhTaKQJlFIkyikvZ7nOfTSU8uVG+8f+mqLmeZ+qPlOOkUhTaKQJlFIkyikSRTSJAppEoU0iUKaRCFt7Mlo5zSfurX+3p33uXnD0JTm8mznfXaKQppEIU2ikCZRSJMopEkU0iQKaRKFNIlC2pt10Y7mU9XObY/Ofe+UG59e17y7aOeVnaKQJlFIkyikSRTSJAppEoU0iUKaRCFNopB2cF005fN2POfu1Gk+Ra75Ce68V+4ugo8lUUiTKKRJFNIkCmkShTSJQppEIU2ikPZ6nmfx5eaCpPkcseaTws7xbvw66yL4WBKFNIlCmkQhTaKQJlFIkyikSRTSJAppb9ZFX01zE3Nux9N85c97pt4OpyikSRTSJAppEoU0iUKaRCFNopAmUUiTKKS9eTJac22zY2oj8nk3/Uz9RVPLpClOUUiTKKRJFNIkCmkShTSJQppEIU2ikCZRSHuzLlprLjmaT3ObeuXPc+OnsLOIcopCmkQhTaKQJlFIkyikSRTSJAppEoU0iULa1rpo7caVz9rORmTqdqLmE8rWpt6rc5/vzjvpFIU0iUKaRCFNopAmUUiTKKRJFNIkCmkShbSD66LPc24/dG65cm71MrW1at7zdO5TcIpCmkQhTaKQJlFIkyikSRTSJAppEoU0iUKaddFP3Nbzf80dz9rUxuscpyikSRTSJAppEoU0iUKaRCFNopAmUUiTKKQdXBfduE1Zaz4ZbeoeoKnvvfGd3HllpyikSRTSJAppEoU0iUKaRCFNopAmUUiTKKS9nudZfHnqvpZzvtoTu6Y038kb72pyikKaRCFNopAmUUiTKKRJFNIkCmkShTSJQtqbdREwyykKaRKFNIlCmkQhTaKQJlFIkyikSRTSJApp/wFgBiXFkKmaRwAAAABJRU5ErkJggg==" alt="QR" width="216" height="216"></div></div>
     <button class="close" id="qrClose" data-t="close" type="button"></button>
   </div>
 </div>
 <div class="toast" id="toast" hidden></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 /* ========== عدّل بياناتك هنا ========== */
 const CARD = {
@@ -274,10 +273,7 @@ document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{
     .catch(()=>{const s=b.previousElementSibling.querySelector(".v"),r=document.createRange();r.selectNodeContents(s);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);toast(T[lang].sel)});
 }));
 
-let made=false;
-$("qrBtn").addEventListener("click",()=>{$("qrModal").hidden=false;
-  if(!made&&window.QRCode){new QRCode($("qr"),{text:link(),width:216,height:216,colorDark:"#0b0a09",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});made=true}
-  $("qrClose").focus()});
+$("qrBtn").addEventListener("click",()=>{$("qrModal").hidden=false;$("qrClose").focus()});
 const closeQr=()=>$("qrModal").hidden=true;
 $("qrClose").addEventListener("click",closeQr);
 $("qrModal").addEventListener("click",e=>{if(e.target.id==="qrModal")closeQr()});
